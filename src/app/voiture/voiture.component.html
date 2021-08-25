@@ -1,6 +1,11 @@
 <h2>Voitures à vendre</h2>
-<ul>
-    <li *ngFor="let v of voitures">
-        {{v.Marque}}
-    </li>
-</ul>
+
+    <div *ngFor="let v of voitures">
+        <h4>{{v.Marque}} {{v.Modele}} {{v.AnneeDeMiseEnCirculation}}</h4> 
+        <img src="{{ v.Image }}" WIDTH=300 alt=""><br>
+        <h4>{{ v.PrixDemande }} Euro</h4>
+        <p>Commentaires du vendeur : </p><p> "{{v.Description}}"</p>
+        <button routerLink="/voiture-edit/{{v.id}}" class="btn btn-success">Modifier</button>
+        <button (click)="delete(v.id)" routerLink="/voiture" class="btn btn-success">Supprimer</button><br><br>
+    </div>
+      

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { RestService, Voiture } from '../rest.service';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-voiture-new',
@@ -7,9 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VoitureNewComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit(): void {
+voiture = {
+  id: 0,
+  Marque: '',
+  PrixDemande: 0,
+  Image: '',
+  Kilometrage: 0,
+  Cylindree: 0,
+  Description: '',
+  AnneeDeMiseEnCirculation: 0,
+  Modele: '',
+  Puissance: 0
+}
+
+  constructor(public rest:RestService, private route: ActivatedRoute, private router: Router) { }
+
+  ngOnInit() {
+  }
+
+  newVoiture(){
+    this.rest.newVoiture(this.voiture).subscribe(
+      (result) => {this.router.navigate(['/voiture']);}
+      )
   }
 
 }

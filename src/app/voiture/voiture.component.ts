@@ -27,4 +27,19 @@ export class VoitureComponent implements OnInit {
     )
   }
 
+  add(){
+    this.router.navigate(['/voiture-new']);
+  }
+
+  delete(id: number) {
+    this.rest.deleteVoiture(id).subscribe(
+      (response) => {
+        console.log(response);
+        this.ngOnInit();
+      },
+    err => {
+      console.log("Error");
+    }
+    )   
+  }
 }

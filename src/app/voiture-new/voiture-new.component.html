@@ -1,1 +1,23 @@
-<p>voiture-new works!</p>
+<div>
+    <h2>Formulaire de vente</h2>
+    <label for="inputMarque">Marque : </label><br>
+    <input type="text" [(ngModel)]="voiture.Marque" id="inputMarque" placeholder="Marque"><br><br>
+    <label for="inputModele">Modèle : </label><br>
+    <input type="text" [(ngModel)]="voiture.Modele" id="inputModele" placeholder="Modele"><br><br>
+    <label for="inputImage">Image</label><br>
+    <input type="text" [(ngModel)]="voiture.Image" id="inputImage" placeholder="URL de l'image"><br><br>
+    <label for="inputComment">Commentaires à propos de la voiture</label><br>
+    <input type="text" [(ngModel)]="voiture.Description" id="inputComment" placeholder="Commentaires"><br><br>
+    <label for="inputCirculation">Année de mise en circulation : </label><br>
+    <input type="text" [(ngModel)]="voiture.AnneeDeMiseEnCirculation"  id="inputCirculation" placeholder="Année de mise en circualtion"><br><br>
+    <label for="inputCylindree">Cylindrée (en cc) :</label><br>
+    <input type="text" [(ngModel)]="voiture.Cylindree" id="inputCylindree" placeholder="Cylindrée"><br><br>
+    <label for="inputPuissance">Puissance (en CV) :</label><br>
+    <input type="text" [(ngModel)]="voiture.Puissance" id="inputPuissance" placeholder="Puissance"><br><br>
+    <label for="inputKilometrage">Kilometrage</label><br>
+    <input type="text" [(ngModel)]="voiture.Kilometrage"  id="inputKilometrage" placeholder="Kilometrage"><br><br>
+    <label for="inputPrix">Prix demandé</label><br>
+    <input type="text" [(ngModel)]="voiture.PrixDemande" id="inputPrix" placeholder="Prix demandé"><br><br>
+
+    <button (click)="newVoiture()">Enregistrer</button>
+</div>

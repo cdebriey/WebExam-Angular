@@ -14,7 +14,7 @@ export interface Voiture {
   Kilometrage: number,
   Cylindree: number,
   Description: string,
-  MiseEnVente: Date,
+  //MiseEnVente: Date,
   AnneeDeMiseEnCirculation: number,
   Modele: string,
   Puissance: number
@@ -30,6 +30,22 @@ export class RestService {
   constructor(private http:HttpClient) { }
 
   getVoitures(): Observable<any> {
-    return this.http.get<Voiture>(endpoint/* + 'voitures'*/);
+    return this.http.get<Voiture>(endpoint);
+  }
+
+  newVoiture(voiture: Voiture): Observable<any>{
+    return this.http.post<Voiture>(endpoint, voiture);
+  }
+
+  updateVoiture(voiture: Voiture): Observable<any>{
+    return this.http.put<Voiture>(endpoint +'/'+ voiture.id, voiture);
+  }
+
+  getVoiture(id: number): Observable<any>{
+    return this.http.get<Voiture>(endpoint + '/'+ id);
+  }
+
+  deleteVoiture(id: number): Observable<any> {
+    return this.http.delete<Voiture>(endpoint + '/delete/' + id);
   }
 }
